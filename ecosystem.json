@@ -1,0 +1,23 @@
+{
+  "apps": [{
+    "name"        : "koa2-base",
+    "script"      : "./index.js",
+    "watch"       : true,
+    "env": {
+      "NODE_ENV"  : "production"
+    },
+    "instances"   : "max",
+    "exec_mode"   : "cluster"
+  }],
+  "deploy": {
+    "production": {
+      "user"              : "",
+      "host"              : "",
+      "repo"              : "https://github.com/pankyka/koa2-base.git",
+      "ref"               : "origin/master",
+      "path"              : "",
+      "pre-deploy-local"  : "",
+      "post-deploy"       : "npm i --production && pm2 startOrRestart ecosystem.json --env production"
+    }
+  }
+}
